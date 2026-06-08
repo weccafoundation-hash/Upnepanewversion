@@ -151,22 +151,20 @@ function homeHero(content) {
     </div>
     <div class="container">
       <div class="home-hero__layout">
-        <p class="home-hero__eyebrow animate-fade-in">${esc(content.eyebrow)}</p>
-        <h1 id="hero-heading" class="home-hero__headline animate-fade-in animate-fade-in-delay-1">${esc(content.headline)}</h1>
-        <div class="home-hero__ctas animate-fade-in animate-fade-in-delay-2">
-          ${btn(content.primaryCta.label, content.primaryCta.href, 'primary')}
-          ${content.secondaryCta ? btn(content.secondaryCta.label, content.secondaryCta.href, 'outline', true) : ''}
+        <div class="home-hero__content">
+          <p class="home-hero__eyebrow animate-fade-in">${esc(content.eyebrow)}</p>
+          <h1 id="hero-heading" class="home-hero__headline animate-fade-in animate-fade-in-delay-1">${esc(content.headline)}</h1>
+          <div class="home-hero__body animate-fade-in animate-fade-in-delay-2">
+            <p>${esc(content.subheadline)}</p>
+            ${content.narrative ? `<p>${esc(content.narrative)}</p>` : ''}
+            ${content.supporting ? `<p>${esc(content.supporting)}</p>` : ''}
+          </div>
+          <ul class="home-hero__trust-tags animate-fade-in animate-fade-in-delay-3" aria-label="Credentials">
+            ${tags.map((t) => `<li><span class="home-hero__trust-tag">✓ ${esc(t)}</span></li>`).join('')}
+          </ul>
         </div>
-        <div class="home-hero__visual animate-fade-in animate-fade-in-delay-3">
+        <div class="home-hero__visual animate-fade-in animate-fade-in-delay-2">
           <img src="office.png" alt="UPNEPA NG office and renewable energy operations" loading="eager" width="800" height="600">
-        </div>
-        <ul class="home-hero__trust-tags animate-fade-in animate-fade-in-delay-4" aria-label="Credentials">
-          ${tags.map((t) => `<li><span class="home-hero__trust-tag">✓ ${esc(t)}</span></li>`).join('')}
-        </ul>
-        <div class="home-hero__body animate-fade-in animate-fade-in-delay-4">
-          <p>${esc(content.subheadline)}</p>
-          ${content.narrative ? `<p>${esc(content.narrative)}</p>` : ''}
-          ${content.supporting ? `<p>${esc(content.supporting)}</p>` : ''}
         </div>
       </div>
     </div>
